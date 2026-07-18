@@ -40,7 +40,8 @@ else:
 styles = getSampleStyleSheet()
 title = ParagraphStyle("Title", parent=styles["Title"], fontName=BODY_FONT, fontSize=24, leading=26, textColor=INK, alignment=TA_LEFT, spaceAfter=3)
 subtitle = ParagraphStyle("Subtitle", parent=styles["BodyText"], fontName=BODY_FONT, fontSize=9.2, leading=11.5, textColor=GREEN)
-contact = ParagraphStyle("Contact", parent=styles["BodyText"], fontName=BODY_FONT, fontSize=7.2, leading=10.5, textColor=MUTED, alignment=TA_RIGHT)
+contact = ParagraphStyle("Contact", parent=styles["BodyText"], fontName=BODY_FONT, fontSize=8.2, leading=11, textColor=MUTED, alignment=TA_RIGHT)
+link_card = ParagraphStyle("LinkCard", parent=styles["BodyText"], fontName=BODY_FONT, fontSize=8.7, leading=11.7, textColor=GREEN)
 section = ParagraphStyle("Section", parent=styles["Heading2"], fontName=BODY_FONT, fontSize=8.2, leading=10, textColor=GREEN, spaceBefore=8, spaceAfter=4, uppercase=True, tracking=1.0)
 body = ParagraphStyle("Body", parent=styles["BodyText"], fontName=BODY_FONT, fontSize=8.4, leading=11.3, textColor=INK, spaceAfter=3)
 project_name = ParagraphStyle("Project", parent=body, fontName=BODY_FONT, fontSize=8.7, leading=11, textColor=INK)
@@ -82,8 +83,6 @@ COPY = {
     "en": {
         "subtitle": "Applied AI Workflow Designer · LLM Evaluator · Italian Language Specialist",
         "location": "Italy · Remote",
-        "github_profile_label": "github.com/pietromontanticomposer",
-        "github_source_label": "github.com/pietromontanticomposer/ai-portfolio",
         "profile_label": "PROFILE",
         "profile": "Italian native speaker with a diploma in clarinet (110/110) and 13 years of professional experience across composition, performance and events. I began using AI to solve concrete production, review and organizational problems; that work evolved into designing and testing AI-assisted products with measurable quality checks, deterministic guardrails and human approval.",
         "projects_label": "SELECTED AI-ASSISTED PROJECTS",
@@ -109,8 +108,6 @@ COPY = {
     "it": {
         "subtitle": "Progettista di workflow AI applicati · Valutatore LLM · Specialista di lingua italiana",
         "location": "Italia · Da remoto",
-        "github_profile_label": "github.com/pietromontanticomposer",
-        "github_source_label": "github.com/pietromontanticomposer/ai-portfolio",
         "profile_label": "PROFILO",
         "profile": "Madrelingua italiano, diplomato in clarinetto con 110/110, con 13 anni di esperienza professionale tra composizione, performance ed eventi. Ho iniziato a usare l'AI per risolvere problemi concreti di produzione, revisione e organizzazione; quel percorso si è evoluto nella progettazione e nel collaudo di prodotti assistiti dall'AI con controlli di qualità misurabili, regole deterministiche e approvazione umana.",
         "projects_label": "PROGETTI SELEZIONATI ASSISTITI DALL'AI",
@@ -163,9 +160,6 @@ def build_resume(output_path, language):
     header = Table(
         [[Portrait(PHOTO), identity, Paragraph(
             '<link href="mailto:pietromontanticomposer@gmail.com" color="#596159">pietromontanticomposer@gmail.com</link><br/>'
-            '<link href="https://pietro-ai-portfolio.vercel.app" color="#1D4F3A">pietro-ai-portfolio.vercel.app</link><br/>'
-            f'<link href="https://github.com/pietromontanticomposer" color="#1D4F3A">{copy["github_profile_label"]}</link><br/>'
-            f'<link href="https://github.com/pietromontanticomposer/ai-portfolio" color="#1D4F3A">{copy["github_source_label"]}</link><br/>'
             + copy["location"],
             contact,
         )]],
@@ -180,7 +174,33 @@ def build_resume(output_path, language):
         ("LINEBELOW", (0, 0), (-1, 0), 1.5, GREEN),
     ]))
 
-    story = [header]
+    resume_links = Table(
+        [[
+            Paragraph(
+                '<font size="6.8" color="#596159"><b>PORTFOLIO</b></font><br/>'
+                '<u><link href="https://pietro-ai-portfolio.vercel.app" color="#1D4F3A"><b>pietro-ai-portfolio.vercel.app</b></link></u>',
+                link_card,
+            ),
+            Paragraph(
+                '<font size="6.8" color="#596159"><b>GITHUB</b></font><br/>'
+                '<u><link href="https://github.com/pietromontanticomposer/ai-portfolio" color="#1D4F3A"><b>github.com/pietromontanticomposer/ai-portfolio</b></link></u>',
+                link_card,
+            ),
+        ]],
+        colWidths=[82.5 * mm, 82.5 * mm],
+    )
+    resume_links.setStyle(TableStyle([
+        ("VALIGN", (0, 0), (-1, -1), "MIDDLE"),
+        ("BACKGROUND", (0, 0), (-1, -1), PALE),
+        ("BOX", (0, 0), (-1, -1), 0.6, LINE),
+        ("INNERGRID", (0, 0), (-1, -1), 0.6, LINE),
+        ("LEFTPADDING", (0, 0), (-1, -1), 8),
+        ("RIGHTPADDING", (0, 0), (-1, -1), 8),
+        ("TOPPADDING", (0, 0), (-1, -1), 7),
+        ("BOTTOMPADDING", (0, 0), (-1, -1), 7),
+    ]))
+
+    story = [header, resume_links]
     story.append(Paragraph(copy["profile_label"], section))
     story.append(Paragraph(copy["profile"], body))
     story.append(Paragraph(copy["projects_label"], section))
