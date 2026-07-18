@@ -82,8 +82,8 @@ COPY = {
     "en": {
         "subtitle": "Applied AI Workflow Designer · LLM Evaluator · Italian Language Specialist",
         "location": "Italy · Remote",
-        "github_profile_label": "GitHub profile",
-        "github_source_label": "GitHub portfolio source",
+        "github_profile_label": "github.com/pietromontanticomposer",
+        "github_source_label": "github.com/pietromontanticomposer/ai-portfolio",
         "profile_label": "PROFILE",
         "profile": "Italian native speaker with a diploma in clarinet (110/110) and 13 years of professional experience across composition, performance and events. I began using AI to solve concrete production, review and organizational problems; that work evolved into designing and testing AI-assisted products with measurable quality checks, deterministic guardrails and human approval.",
         "projects_label": "SELECTED AI-ASSISTED PROJECTS",
@@ -109,8 +109,8 @@ COPY = {
     "it": {
         "subtitle": "Progettista di workflow AI applicati · Valutatore LLM · Specialista di lingua italiana",
         "location": "Italia · Da remoto",
-        "github_profile_label": "Profilo GitHub",
-        "github_source_label": "Codice portfolio su GitHub",
+        "github_profile_label": "github.com/pietromontanticomposer",
+        "github_source_label": "github.com/pietromontanticomposer/ai-portfolio",
         "profile_label": "PROFILO",
         "profile": "Madrelingua italiano, diplomato in clarinetto con 110/110, con 13 anni di esperienza professionale tra composizione, performance ed eventi. Ho iniziato a usare l'AI per risolvere problemi concreti di produzione, revisione e organizzazione; quel percorso si è evoluto nella progettazione e nel collaudo di prodotti assistiti dall'AI con controlli di qualità misurabili, regole deterministiche e approvazione umana.",
         "projects_label": "PROGETTI SELEZIONATI ASSISTITI DALL'AI",
