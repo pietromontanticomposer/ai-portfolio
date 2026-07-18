@@ -82,6 +82,8 @@ COPY = {
     "en": {
         "subtitle": "Applied AI Workflow Designer · LLM Evaluator · Italian Language Specialist",
         "location": "Italy · Remote",
+        "github_profile_label": "GitHub profile",
+        "github_source_label": "GitHub portfolio source",
         "profile_label": "PROFILE",
         "profile": "Italian native speaker with hands-on experience designing, testing and refining AI-assisted products. I build retrieval-grounded workflows with measurable quality checks, deterministic guardrails and human approval before real-world actions.",
         "projects_label": "SELECTED AI-ASSISTED PROJECTS",
@@ -107,6 +109,8 @@ COPY = {
     "it": {
         "subtitle": "Progettista di workflow AI applicati · Valutatore LLM · Specialista di lingua italiana",
         "location": "Italia · Da remoto",
+        "github_profile_label": "Profilo GitHub",
+        "github_source_label": "Codice portfolio su GitHub",
         "profile_label": "PROFILO",
         "profile": "Madrelingua italiano con esperienza pratica nella progettazione, nel collaudo e nel miglioramento di prodotti assistiti dall'AI. Realizzo workflow basati su fonti verificabili, controlli di qualità misurabili, regole deterministiche e approvazione umana prima di ogni azione reale.",
         "projects_label": "PROGETTI SELEZIONATI ASSISTITI DALL'AI",
@@ -160,6 +164,8 @@ def build_resume(output_path, language):
         [[Portrait(PHOTO), identity, Paragraph(
             '<link href="mailto:pietromontanticomposer@gmail.com" color="#596159">pietromontanticomposer@gmail.com</link><br/>'
             '<link href="https://pietro-ai-portfolio.vercel.app" color="#1D4F3A">pietro-ai-portfolio.vercel.app</link><br/>'
+            f'<link href="https://github.com/pietromontanticomposer" color="#1D4F3A">{copy["github_profile_label"]}</link><br/>'
+            f'<link href="https://github.com/pietromontanticomposer/ai-portfolio" color="#1D4F3A">{copy["github_source_label"]}</link><br/>'
             + copy["location"],
             contact,
         )]],
