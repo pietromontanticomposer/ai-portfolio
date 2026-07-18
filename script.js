@@ -13,6 +13,22 @@ if (navToggle && mainNav) {
   }));
 }
 
+const resumeLanguageButtons = document.querySelectorAll('[data-resume-language]');
+const resumePanels = document.querySelectorAll('[data-resume-panel]');
+
+if (resumeLanguageButtons.length && resumePanels.length) {
+  resumeLanguageButtons.forEach((button) => button.addEventListener('click', () => {
+    const language = button.dataset.resumeLanguage;
+    resumeLanguageButtons.forEach((item) => {
+      item.setAttribute('aria-pressed', String(item.dataset.resumeLanguage === language));
+    });
+    resumePanels.forEach((panel) => {
+      panel.hidden = panel.dataset.resumePanel !== language;
+    });
+    document.documentElement.lang = language;
+  }));
+}
+
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 if (!reducedMotion && 'IntersectionObserver' in window) {
   document.documentElement.classList.add('js');
@@ -26,4 +42,3 @@ if (!reducedMotion && 'IntersectionObserver' in window) {
   }, { threshold: 0.08 });
   document.querySelectorAll('.reveal').forEach((node) => observer.observe(node));
 }
-

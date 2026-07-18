@@ -208,9 +208,15 @@ h1, h2, h3, p { margin-top: 0; }
 .method-note p { max-width: 850px; color: #c2cbc3; }
 .method-note .button { color: white; border-color: #758078; }
 .resume-shell { width: min(1050px, calc(100% - 40px)); margin: 0 auto; padding: 55px 0 100px; }
-.resume-actions { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; }
+.resume-actions { display: flex; justify-content: space-between; align-items: end; gap: 28px; margin-bottom: 24px; }
 .resume-actions p { margin: 0; color: var(--muted); }
+.language-switch { display: inline-flex; gap: 4px; margin-top: 12px; padding: 4px; border: 1px solid var(--line); border-radius: 999px; background: rgba(255,255,255,.45); }
+.language-switch button { min-width: 80px; border: 0; border-radius: 999px; padding: 7px 13px; background: transparent; color: var(--muted); font: 700 12px var(--sans); cursor: pointer; }
+.language-switch button[aria-pressed="true"] { background: var(--ink); color: white; }
+.resume-downloads { display: flex; justify-content: flex-end; flex-wrap: wrap; gap: 8px; }
+.resume-downloads .button { min-height: 42px; padding: 0 15px; font-size: 12px; }
 .web-resume { padding: 54px; background: white; box-shadow: 0 20px 60px rgba(23,30,24,.12); }
+.web-resume[hidden] { display: none; }
 .web-resume > header { display: flex; justify-content: space-between; gap: 30px; padding-bottom: 26px; border-bottom: 3px solid var(--green); }
 .resume-identity { display: grid; grid-template-columns: 96px minmax(0, 1fr); align-items: center; gap: 22px; }
 .resume-photo { width: 96px; height: 124px; flex: 0 0 auto; border: 2px solid var(--green); border-radius: 10px; background: url("/assets/pietro-montanti-venice.png") 50% 21% / 150% auto no-repeat; box-shadow: 7px 7px 0 var(--line); }
@@ -274,6 +280,7 @@ h1, h2, h3, p { margin-top: 0; }
   .case summary em { display: none; }
   .resume-shell { width: min(100% - 20px, 1050px); padding-top: 30px; }
   .resume-actions { align-items: stretch; flex-direction: column; gap: 15px; }
+  .resume-downloads { display: grid; grid-template-columns: 1fr; }
   .web-resume { padding: 25px 20px; }
   .web-resume > header { flex-direction: column; }
   .resume-identity { grid-template-columns: 72px minmax(0, 1fr); gap: 16px; }
