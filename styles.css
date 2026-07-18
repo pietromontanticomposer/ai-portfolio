@@ -212,9 +212,12 @@ h1, h2, h3, p { margin-top: 0; }
 .resume-actions p { margin: 0; color: var(--muted); }
 .web-resume { padding: 54px; background: white; box-shadow: 0 20px 60px rgba(23,30,24,.12); }
 .web-resume > header { display: flex; justify-content: space-between; gap: 30px; padding-bottom: 26px; border-bottom: 3px solid var(--green); }
+.resume-identity { display: grid; grid-template-columns: 96px minmax(0, 1fr); align-items: center; gap: 22px; }
+.resume-photo { width: 96px; height: 124px; flex: 0 0 auto; border: 2px solid var(--green); border-radius: 10px; background: url("/assets/pietro-montanti-venice.png") 50% 21% / 150% auto no-repeat; box-shadow: 7px 7px 0 var(--line); }
 .web-resume h1 { margin-bottom: 5px; font: 500 45px/1 var(--serif); }
 .web-resume header p { margin: 0; color: var(--green-2); font-weight: 700; }
 .resume-contact { display: flex; flex-direction: column; align-items: flex-end; gap: 4px; font-size: 13px; }
+.resume-contact a { white-space: nowrap; }
 .web-resume section { padding-top: 22px; }
 .web-resume h2 { margin-bottom: 9px; color: var(--green-2); font: 700 11px var(--mono); letter-spacing: .1em; text-transform: uppercase; }
 .web-resume section > p { margin: 0; font-size: 14px; }
@@ -273,6 +276,9 @@ h1, h2, h3, p { margin-top: 0; }
   .resume-actions { align-items: stretch; flex-direction: column; gap: 15px; }
   .web-resume { padding: 25px 20px; }
   .web-resume > header { flex-direction: column; }
+  .resume-identity { grid-template-columns: 72px minmax(0, 1fr); gap: 16px; }
+  .resume-photo { width: 72px; height: 96px; border-radius: 8px; box-shadow: 5px 5px 0 var(--line); }
+  .web-resume h1 { font-size: 34px; }
   .resume-contact { align-items: flex-start; }
   .resume-project { grid-template-columns: 1fr; gap: 3px; }
   .resume-columns { grid-template-columns: 1fr; gap: 0; }
@@ -281,4 +287,3 @@ h1, h2, h3, p { margin-top: 0; }
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
 }
-

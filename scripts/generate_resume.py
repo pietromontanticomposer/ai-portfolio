@@ -5,13 +5,15 @@ from reportlab.lib.enums import TA_LEFT, TA_RIGHT
 from reportlab.lib.pagesizes import A4
 from reportlab.lib.styles import ParagraphStyle, getSampleStyleSheet
 from reportlab.lib.units import mm
+from reportlab.lib.utils import ImageReader
 from reportlab.pdfbase.ttfonts import TTFont
 from reportlab.pdfbase import pdfmetrics
-from reportlab.platypus import KeepTogether, Paragraph, SimpleDocTemplate, Spacer, Table, TableStyle
+from reportlab.platypus import Flowable, KeepTogether, Paragraph, SimpleDocTemplate, Spacer, Table, TableStyle
 
 
 ROOT = Path(__file__).resolve().parents[1]
 OUTPUT = ROOT / "output" / "pdf" / "Pietro-Montanti-AI-Resume.pdf"
+PHOTO = ROOT / "assets" / "pietro-montanti-venice.png"
 OUTPUT.parent.mkdir(parents=True, exist_ok=True)
 
 INK = colors.HexColor("#111712")
@@ -32,13 +34,45 @@ else:
     BODY_FONT = "Helvetica"
 
 styles = getSampleStyleSheet()
-title = ParagraphStyle("Title", parent=styles["Title"], fontName=BODY_FONT, fontSize=25, leading=27, textColor=INK, alignment=TA_LEFT, spaceAfter=2)
-subtitle = ParagraphStyle("Subtitle", parent=styles["BodyText"], fontName=BODY_FONT, fontSize=9.5, leading=12, textColor=GREEN)
-contact = ParagraphStyle("Contact", parent=styles["BodyText"], fontName=BODY_FONT, fontSize=7.5, leading=11, textColor=MUTED, alignment=TA_RIGHT)
+title = ParagraphStyle("Title", parent=styles["Title"], fontName=BODY_FONT, fontSize=24, leading=26, textColor=INK, alignment=TA_LEFT, spaceAfter=3)
+subtitle = ParagraphStyle("Subtitle", parent=styles["BodyText"], fontName=BODY_FONT, fontSize=9.2, leading=11.5, textColor=GREEN)
+contact = ParagraphStyle("Contact", parent=styles["BodyText"], fontName=BODY_FONT, fontSize=7.2, leading=10.5, textColor=MUTED, alignment=TA_RIGHT)
 section = ParagraphStyle("Section", parent=styles["Heading2"], fontName=BODY_FONT, fontSize=8.2, leading=10, textColor=GREEN, spaceBefore=8, spaceAfter=4, uppercase=True, tracking=1.0)
 body = ParagraphStyle("Body", parent=styles["BodyText"], fontName=BODY_FONT, fontSize=8.4, leading=11.3, textColor=INK, spaceAfter=3)
 project_name = ParagraphStyle("Project", parent=body, fontName=BODY_FONT, fontSize=8.7, leading=11, textColor=INK)
 small = ParagraphStyle("Small", parent=body, fontSize=7.2, leading=9.5, textColor=MUTED)
+
+
+class Portrait(Flowable):
+    """Rounded document crop; the source photo remains unaltered."""
+
+    def __init__(self, path, width=28 * mm, height=36 * mm):
+        super().__init__()
+        self.path = path
+        self.width = width
+        self.height = height
+
+    def draw(self):
+        canvas = self.canv
+        canvas.saveState()
+        clip = canvas.beginPath()
+        clip.roundRect(0, 0, self.width, self.height, 2.5 * mm)
+        canvas.clipPath(clip, stroke=0, fill=0)
+
+        # Crop the Venice Film Festival portrait from the original 450 x 600 image.
+        crop_width = 300
+        crop_height = 390
+        crop_x = 75
+        crop_from_top = 45
+        image_width = self.width * 450 / crop_width
+        image_height = self.height * 600 / crop_height
+        image_x = -self.width * crop_x / crop_width
+        image_y = -self.height * (600 - crop_from_top - crop_height) / crop_height
+        canvas.drawImage(ImageReader(str(self.path)), image_x, image_y, image_width, image_height, mask="auto")
+        canvas.restoreState()
+        canvas.setStrokeColor(GREEN)
+        canvas.setLineWidth(1)
+        canvas.roundRect(0, 0, self.width, self.height, 2.5 * mm, stroke=1, fill=0)
 
 doc = SimpleDocTemplate(
     str(OUTPUT),
@@ -52,22 +86,39 @@ doc = SimpleDocTemplate(
 )
 
 story = []
+identity = Table(
+    [[Paragraph("Pietro Montanti", title)],
+     [Paragraph("Applied AI Workflow Designer · LLM Evaluator · Italian Language Specialist", subtitle)]],
+    colWidths=[78 * mm],
+)
+identity.setStyle(TableStyle([
+    ("LEFTPADDING", (0, 0), (-1, -1), 0),
+    ("RIGHTPADDING", (0, 0), (-1, -1), 0),
+    ("TOPPADDING", (0, 0), (-1, -1), 0),
+    ("BOTTOMPADDING", (0, 0), (-1, -1), 0),
+]))
 header = Table(
-    [[Paragraph("Pietro Montanti", title), Paragraph("pietromontanticomposer@gmail.com<br/>Italy · Remote", contact)],
-     [Paragraph("AI Workflow Builder · LLM Evaluator · Italian Language Specialist", subtitle), ""]],
-    colWidths=[112 * mm, 53 * mm],
+    [[Portrait(PHOTO), identity, Paragraph(
+        '<link href="mailto:pietromontanticomposer@gmail.com" color="#596159">pietromontanticomposer@gmail.com</link><br/>'
+        '<link href="https://pietro-ai-portfolio.vercel.app" color="#1D4F3A">pietro-ai-portfolio.vercel.app</link><br/>'
+        'Italy · Remote',
+        contact,
+    )]],
+    colWidths=[32 * mm, 78 * mm, 55 * mm],
 )
 header.setStyle(TableStyle([
     ("VALIGN", (0, 0), (-1, -1), "TOP"),
-    ("SPAN", (1, 0), (1, 1)),
-    ("LINEBELOW", (0, 1), (-1, 1), 1.5, GREEN),
-    ("BOTTOMPADDING", (0, 1), (-1, 1), 7),
+    ("LEFTPADDING", (0, 0), (-1, -1), 0),
+    ("RIGHTPADDING", (0, 0), (-1, -1), 0),
+    ("TOPPADDING", (0, 0), (-1, -1), 0),
+    ("BOTTOMPADDING", (0, 0), (-1, -1), 7),
+    ("LINEBELOW", (0, 0), (-1, 0), 1.5, GREEN),
 ]))
 story.append(header)
 
 story.append(Paragraph("PROFILE", section))
 story.append(Paragraph(
-    "Italian native speaker with hands-on experience designing, testing and refining AI-assisted products. Strong focus on instruction following, output quality, retrieval-grounded generation, deterministic guardrails and human approval before real-world actions.",
+    "Italian native speaker with hands-on experience designing, testing and refining AI-assisted products. I build retrieval-grounded workflows with measurable quality checks, deterministic guardrails and human approval before real-world actions.",
     body,
 ))
 
@@ -103,7 +154,7 @@ story.append(capabilities)
 story.append(Paragraph("LANGUAGES & PROFESSIONAL BACKGROUND", section))
 background = Table([
     [Paragraph("<b>Languages</b><br/>Italian: native<br/>English: advanced comprehension, intermediate spoken communication", body),
-     Paragraph("<b>Professional background</b><br/>Independent composer and multi-instrumentalist. Experienced in translating complex creative requirements into structured, testable production workflows.", body)]
+     Paragraph("<b>Professional background</b><br/>Independent composer and multi-instrumentalist. Experienced in translating ambiguous creative requirements into structured, testable production workflows and clear deliverables.", body)]
 ], colWidths=[62 * mm, 103 * mm])
 background.setStyle(TableStyle([("VALIGN", (0, 0), (-1, -1), "TOP"), ("LEFTPADDING", (0, 0), (-1, -1), 0), ("RIGHTPADDING", (0, 0), (-1, -1), 10)]))
 story.append(background)
