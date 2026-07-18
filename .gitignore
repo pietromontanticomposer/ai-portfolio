@@ -1,0 +1,8 @@
+.DS_Store
+.vercel/
+.env
+.env.*
+tmp/
+__pycache__/
+*.pyc
+

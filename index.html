@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="description" content="Selected applied AI workflows and evaluation work by Pietro Montanti.">
+  <title>Pietro Montanti - Applied AI Portfolio</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="Pietro Montanti, home">
+      <span class="brand-mark">PM</span>
+      <span>Pietro Montanti</span>
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="main-nav">Menu</button>
+    <nav id="main-nav" class="main-nav" aria-label="Primary navigation">
+      <a href="#projects">Projects</a>
+      <a href="/evaluation">Evaluation sample</a>
+      <a href="/resume">Resume</a>
+      <a class="nav-cta" href="mailto:pietromontanticomposer@gmail.com">Contact</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section id="top" class="hero section-shell">
+      <div class="hero-copy reveal">
+        <p class="eyebrow">Applied AI portfolio / 2026</p>
+        <h1>I turn messy processes into <span>controlled AI workflows.</span></h1>
+        <p class="hero-lede">Italian native speaker building and evaluating practical LLM systems with retrieval, deterministic checks, human approval and clear failure boundaries.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="#projects">View selected work</a>
+          <a class="button secondary" href="/output/pdf/Pietro-Montanti-AI-Resume.pdf" download>Download one-page resume</a>
+        </div>
+        <p class="disclosure">Built with AI coding assistance. Architecture, testing, product decisions and quality control directed by me.</p>
+      </div>
+      <div class="hero-panel reveal" aria-label="Workflow overview">
+        <div class="panel-top">
+          <span class="status-dot"></span>
+          <span>CONTROLLED WORKFLOW</span>
+          <span class="panel-id">PM-05</span>
+        </div>
+        <ol class="pipeline">
+          <li><span>01</span><strong>Ingest</strong><small>documents, email, web or audio</small></li>
+          <li><span>02</span><strong>Ground</strong><small>retrieve evidence and context</small></li>
+          <li><span>03</span><strong>Generate</strong><small>structured model output</small></li>
+          <li><span>04</span><strong>Validate</strong><small>rules plus independent review</small></li>
+          <li><span>05</span><strong>Approve</strong><small>human decision before action</small></li>
+        </ol>
+        <div class="panel-foot"><span>FAIL-CLOSED</span><span>TRACEABLE</span><span>HUMAN-IN-THE-LOOP</span></div>
+      </div>
+    </section>
+
+    <section class="proof-strip" aria-label="Portfolio summary">
+      <div><strong>5</strong><span>selected products</span></div>
+      <div><strong>2</strong><span>independent AI reviewers</span></div>
+      <div><strong>106</strong><span>deterministic tests across key systems</span></div>
+      <div><strong>4</strong><span>delivery surfaces: web, desktop, native, pipeline</span></div>
+    </section>
+
+    <section id="projects" class="section-shell projects-section">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Selected work</p>
+        <h2>AI that has to behave, not just impress.</h2>
+        <p>Private production code; sanitized reconstructions and technical summaries below. All names and records shown are fictional.</p>
+      </div>
+
+      <article class="project-card project-crm reveal">
+        <div class="project-copy">
+          <div class="project-index">01 / AI OUTREACH CRM</div>
+          <h3>Retrieval-grounded outreach with independent review.</h3>
+          <p>A full-stack workflow for researching contacts, drafting personalized outreach and stopping unsupported claims before delivery.</p>
+          <ul class="tags" aria-label="Technologies"><li>Next.js</li><li>TypeScript</li><li>Supabase</li><li>Codex</li><li>Claude</li></ul>
+          <dl class="project-facts">
+            <div><dt>My focus</dt><dd>Workflow design, prompts, guardrails, QA and iterative debugging</dd></div>
+            <div><dt>Control</dt><dd>Source citations, allowlists, deterministic checks and mandatory approval</dd></div>
+            <div><dt>Validation</dt><dd>Independent model review plus 23 worker tests</dd></div>
+          </dl>
+        </div>
+        <div class="mock-window crm-window" aria-label="Anonymized CRM interface reconstruction">
+          <div class="mock-bar"><span></span><span></span><span></span><b>Anonymized reconstruction</b></div>
+          <div class="crm-grid">
+            <aside><strong>OUTREACH</strong><a class="active">Review queue <i>3</i></a><a>Approved <i>12</i></a><a>Needs evidence <i>2</i></a></aside>
+            <div class="crm-main">
+              <div class="record-head"><div><small>CONTACT 024</small><strong>Aurora Studios</strong></div><span class="pill amber">Human review</span></div>
+              <div class="evidence"><small>VERIFIED EVIDENCE</small><p>Public interview confirms the production's chamber-music direction.</p><span>Source captured</span></div>
+              <div class="draft"><small>AI DRAFT</small><p>I was interested in the way your recent project uses a restrained chamber palette...</p></div>
+              <div class="checks"><span class="pass">✓ Citation match</span><span class="pass">✓ Allowed reference</span><span class="pass">✓ Tone</span></div>
+              <div class="mock-actions"><button type="button">Request change</button><button type="button" class="approve">Approve draft</button></div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="project-card reverse reveal">
+        <div class="project-copy">
+          <div class="project-index">02 / INTERPELLI WATCHER</div>
+          <h3>Fail-closed document automation for real-world applications.</h3>
+          <p>A desktop system that monitors official public calls, extracts structured data and prepares an application only when every safety condition passes.</p>
+          <ul class="tags"><li>Python</li><li>Electron</li><li>SQLite</li><li>OCR</li><li>Claude + Codex</li></ul>
+          <dl class="project-facts">
+            <div><dt>My focus</dt><dd>Eligibility logic, edge cases, delivery gates and failure handling</dd></div>
+            <div><dt>Control</dt><dd>Recipient binding, deadline checks, attachment checks and dual-model agreement</dd></div>
+            <div><dt>Validation</dt><dd>83 deterministic rule tests</dd></div>
+          </dl>
+        </div>
+        <div class="system-map" aria-label="Interpelli Watcher workflow diagram">
+          <div class="map-source">OFFICIAL SOURCE<small>API / ZIP / XML / PDF</small></div>
+          <div class="map-arrow">↓</div>
+          <div class="map-row"><span>Extract</span><span>OCR</span><span>Classify</span></div>
+          <div class="map-arrow">↓</div>
+          <div class="review-pair"><div>CLAUDE<small>Independent review</small><b>APPROVE</b></div><div>CODEX<small>Independent review</small><b>APPROVE</b></div></div>
+          <div class="map-arrow">↓ both required</div>
+          <div class="gate"><strong>DELIVERY GATE</strong><span>Recipient ✓</span><span>Deadline ✓</span><span>Attachments ✓</span><span>Duplicate check ✓</span></div>
+        </div>
+      </article>
+
+      <article class="project-card reveal">
+        <div class="project-copy">
+          <div class="project-index">03 / MAILPILOT</div>
+          <h3>AI-assisted email that never sends by itself.</h3>
+          <p>An Electron email client with persistent Gmail synchronization, CRM enrichment and editable AI drafts that always require human approval.</p>
+          <ul class="tags"><li>Electron</li><li>React</li><li>IMAP</li><li>SMTP</li><li>OpenAI-compatible API</li></ul>
+          <dl class="project-facts">
+            <div><dt>My focus</dt><dd>Inbox behavior, draft quality, deduplication and approval UX</dd></div>
+            <div><dt>Control</dt><dd>Spam filtering, full-thread context and explicit send approval</dd></div>
+            <div><dt>Resilience</dt><dd>Persistent IDLE connection, retry and cache-first interface</dd></div>
+          </dl>
+        </div>
+        <div class="mock-window mail-window" aria-label="Anonymized MailPilot interface reconstruction">
+          <div class="mock-bar"><span></span><span></span><span></span><b>MailPilot / demo data</b></div>
+          <div class="mail-grid">
+            <div class="mail-list"><div class="mail-item selected"><b>Northlight Lab</b><span>Project follow-up</span><small>09:42</small></div><div class="mail-item"><b>Studio Meridian</b><span>Production notes</span><small>Yesterday</small></div><div class="mail-item"><b>Field Recordings</b><span>Session confirmation</span><small>Mon</small></div></div>
+            <div class="mail-detail"><small>AI DRAFT / NOT SENT</small><h4>Re: Project follow-up</h4><p>Thanks for the detailed notes. I have organized the three open points and can send a revised version by Thursday...</p><div class="draft-meta"><span>Context: full thread</span><span>Provider fallback ready</span></div><div class="mock-actions"><button type="button">Edit</button><button type="button" class="approve">Approve &amp; send</button></div></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="project-card reverse reveal">
+        <div class="project-copy">
+          <div class="project-index">04 / SUNO MIDI EXTRACTOR</div>
+          <h3>From generated audio to editable MIDI.</h3>
+          <p>A desktop pipeline that monitors selected music projects, downloads new audio and converts piano performances into structured MIDI.</p>
+          <ul class="tags"><li>Electron</li><li>PyTorch</li><li>Transkun</li><li>FFmpeg</li><li>MIDI</li></ul>
+          <dl class="project-facts">
+            <div><dt>My focus</dt><dd>Pipeline reliability, musical usefulness and post-processing decisions</dd></div>
+            <div><dt>Control</dt><dd>Deduplication, retries, persistent state and manual/watch modes</dd></div>
+            <div><dt>Experiment</dt><dd>Hybrid note transcription and sustain-pedal reconstruction</dd></div>
+          </dl>
+        </div>
+        <div class="audio-panel" aria-label="Audio to MIDI pipeline visualization">
+          <div class="audio-head"><span>PIANO_STUDY_07.wav</span><b>04:18</b></div>
+          <div class="waveform" aria-hidden="true"></div>
+          <div class="audio-steps"><div><small>01</small><b>Normalize</b><span>FFmpeg</span></div><div><small>02</small><b>Transcribe</b><span>Transkun</span></div><div><small>03</small><b>Refine</b><span>Pedal + cleanup</span></div><div><small>04</small><b>Export</b><span>MIDI + manifest</span></div></div>
+          <div class="piano-roll" aria-hidden="true"><i style="--x:4;--w:18;--y:1"></i><i style="--x:12;--w:14;--y:3"></i><i style="--x:24;--w:22;--y:5"></i><i style="--x:34;--w:12;--y:2"></i><i style="--x:49;--w:24;--y:6"></i><i style="--x:60;--w:10;--y:4"></i><i style="--x:74;--w:19;--y:1"></i></div>
+        </div>
+      </article>
+
+      <article class="project-card compact reveal">
+        <div class="project-copy">
+          <div class="project-index">05 / PROMPTRIGHT</div>
+          <h3>A local-first prompt tool for macOS.</h3>
+          <p>A native menu-bar application for finding and inserting reusable prompts into any app, with global shortcuts and safe clipboard restoration.</p>
+          <ul class="tags"><li>Swift</li><li>SwiftUI</li><li>AppKit</li><li>Local-first</li></ul>
+        </div>
+        <div class="prompt-picker" aria-label="PromptRight interface reconstruction"><div class="prompt-search">⌕ Search prompts...</div><div class="prompt-row active"><span>01</span><div><b>Evaluate response quality</b><small>LLM evaluation · used 18 times</small></div><kbd>↵</kbd></div><div class="prompt-row"><span>02</span><div><b>Extract structured requirements</b><small>Analysis · used 11 times</small></div><kbd>↵</kbd></div><div class="prompt-row"><span>03</span><div><b>Find unsupported claims</b><small>QA · used 9 times</small></div><kbd>↵</kbd></div></div>
+      </article>
+    </section>
+
+    <section class="principles section-shell reveal">
+      <div class="section-heading"><p class="eyebrow">How I work</p><h2>Useful AI needs boundaries.</h2></div>
+      <div class="principle-grid"><div><span>01</span><h3>Ground first</h3><p>Use explicit source material instead of asking the model to remember.</p></div><div><span>02</span><h3>Separate judgment</h3><p>Combine model review with deterministic checks and clear rubrics.</p></div><div><span>03</span><h3>Fail closed</h3><p>Uncertainty, missing evidence or disagreement must stop real-world action.</p></div><div><span>04</span><h3>Keep the human</h3><p>The operator sees the evidence, edits the output and approves delivery.</p></div></div>
+    </section>
+
+    <section class="evaluation-cta section-shell reveal">
+      <div><p class="eyebrow">Direct work sample</p><h2>See how I evaluate model responses.</h2><p>Ten synthetic test cases scored for accuracy, instruction following, Italian quality, safety and privacy.</p></div>
+      <a class="button primary" href="/evaluation">Open evaluation sample</a>
+    </section>
+  </main>
+
+  <footer class="site-footer"><div><strong>Pietro Montanti</strong><span>AI Workflow Builder · LLM Evaluator · Italian Language Specialist</span></div><div><a href="mailto:pietromontanticomposer@gmail.com">Email</a><a href="/resume">Resume</a></div><p>Sanitized portfolio. No client, contact or production data is displayed.</p></footer>
+  <script src="/script.js"></script>
+</body>
+</html>
+
